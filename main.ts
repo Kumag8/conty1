@@ -6,10 +6,12 @@ basic.forever(function () {
     pins.analogReadPin(AnalogPin.P0),
     0,
     1023,
-    -7,
-    8
+    -8,
+    9
     )
-    if (Speed >= 7) {
+    if (Speed >= 8) {
+        radio.sendString("前8")
+    } else if (Speed == 7) {
         radio.sendString("前7")
     } else if (Speed == 6) {
         radio.sendString("前6")
@@ -39,6 +41,8 @@ basic.forever(function () {
         radio.sendString("後6")
     } else if (Speed == -7) {
         radio.sendString("後7")
+    } else {
+        radio.sendString("後8")
     }
 })
 basic.forever(function () {
@@ -46,10 +50,12 @@ basic.forever(function () {
     pins.analogReadPin(AnalogPin.P1),
     0,
     1023,
-    -3,
-    4
+    -4,
+    5
     )
-    if (Direct >= 3) {
+    if (Direct >= 4) {
+        radio.sendString("右4")
+    } else if (Direct >= 3) {
         radio.sendString("右3")
     } else if (Direct == 2) {
         radio.sendString("右2")
@@ -63,5 +69,7 @@ basic.forever(function () {
         radio.sendString("左2")
     } else if (Direct == -3) {
         radio.sendString("左3")
+    } else {
+        radio.sendString("左4")
     }
 })
